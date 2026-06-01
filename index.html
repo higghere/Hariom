@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hariom Group</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-paper">
+
+  <header id="site-header">
+    <span class="header-name">Hariom Group</span>
+  </header>
+
+  <!-- LOGO PLACEHOLDER -->
+  <div id="logo">
+    <div class="logo-placeholder">
+      <span class="logo-placeholder-text">LOGO</span>
+      <span class="logo-placeholder-sub">Place your SVG logo here</span>
+    </div>
+  </div>
+
+  <!-- TREES SAVED COUNTER -->
+  <div id="trees-counter">
+    <div class="trees-inner">
+      <i class="fa-solid fa-tree"></i>
+      <div class="trees-text">
+        <span class="trees-num" id="treesCount">0</span>
+        <span class="trees-label">Trees Saved by Choosing Sustainable Paper</span>
+      </div>
+    </div>
+    <div class="trees-bar-wrap">
+      <div class="trees-bar" id="treesBar"></div>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <!-- pill navbar internals (desktop) -->
+    <div class="nav-hover-track" id="navHoverTrack"></div>
+    <div class="nav-slider" id="navSlider"></div>
+    <button class="nav-item active" data-index="0" data-section="overview">
+      <span>About Us</span>
+    </button>
+    <button class="nav-item" data-index="1" data-section="products">
+      <span>Products</span>
+    </button>
+    <button class="nav-item" data-index="2" data-section="team">
+      <span>Our Team</span>
+    </button>
+    <button class="nav-item" data-index="3" data-section="contact">
+      <span>Contact Us</span>
+    </button>
+    <button class="nav-item" data-index="4" data-section="faq">
+      <span>FAQ</span>
+    </button>
+
+    <!-- mobile hamburger nav -->
+    <input type="checkbox" id="navToggled" name="navToggled">
+    <h1 class="nav-title">Hariom Group</h1>
+    <ul class="mobile-nav-list">
+      <li><a href="#overview" class="active">About Us</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#team">Our Team</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <label id="toggleNav" for="navToggled">
+      <i class="fa-solid fa-bars"></i>
+    </label>
+  </nav>
+
+  <div id="content">
+
+    <!-- ABOUT -->
+    <section id="overview">
+      <div class="section-tag">Est. Since 2005</div>
+      <h2>About Us</h2>
+      <p>
+      Bhaiya kuch do
+      </p>
+      <p>
+      Kuch bhi chale ga 
+      </p>
+      <div class="overview-stats">
+        <div class="stat-box">
+          <span class="stat-num">idk</span>
+          <span class="stat-label">Years of Experience</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">ye rakhna hai humne chatgpt se pucha tha toh voh keh raha tha rakhne ke liye clients ki line </span>
+          <span class="stat-label">Happy Clients</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">smt smt </span>
+          <span class="stat-label">smt smt</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">smt smt</span>
+          <span class="stat-label">smt smt</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section id="products">
+      <div class="section-tag">smt smt</div>
+      <h2>Our Products</h2>
+      <div class="products-grid">
+        <div class="product-card zoom">
+          <div class="product-icon"><i class="fa-solid fa-box-open"></i></div>
+          <h3>Brown Kraft Paper</h3>
+          <p>Strong, durable, and versatile. Our signature brown kraft paper is ideal for packaging, wrapping, corrugated boards, and industrial use. Available in a wide GSM range with custom widths.</p>
+          <div class="product-tags">
+            <span>GSM idk</span>
+            <span>Bulk rolls</span>
+            <span>Custom Width(idk)</span>
+            <span>BIS Certified(yeh kisi website se copy kiya hai)</span>
+          </div>
+        </div>
+      </div>
+      <p class="products-note"><i class="fa-solid fa-circle-info"></i> More products coming soon. <a href="#contact">Contact us</a> for custom requirements.</p>
+    </section>
+
+    <!-- TEAM -->
+    <section id="team">
+      <div class="section-tag">The People Behind It</div>
+      <h2>Our Team</h2>
+      <div class="team-grid">
+        <div class="team-member zoom">
+          <i class="fa-solid fa-circle-user"></i>
+          <h3>lol</h3>
+          <p>ik</p>
+        </div>
+        <div class="team-member zoom">
+          <i class="fa-solid fa-circle-user"></i>
+          <h3>tatti</h3>
+          <p>lol</p>
+        </div>
+        <div class="team-member zoom">
+          <i class="fa-solid fa-circle-user"></i>
+          <h3>pata nahi</h3>
+          <p>lol</p>
+        </div>
+        <div class="team-member zoom">
+          <i class="fa-solid fa-circle-user"></i>
+          <h3>basketball</h3>
+          <p>lol</p>
+        </div>
+        <div class="team-member zoom">
+          <i class="fa-solid fa-circle-user"></i>
+          <h3>football</h3>
+          <p>lol</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-tag">Get In Touch</div>
+      <h2>Contact Us</h2>
+      <ul class="contact-list">
+        <li class="zoom">
+          <i class="fa-solid fa-envelope"></i>
+          <div>
+            <span class="contact-name">General Enquiries</span>
+            <a href="mailto:info@hariomgroup.in">info@hariomgroup.in</a>
+          </div>
+        </li>
+        <li class="zoom">
+          <i class="fa-solid fa-envelope"></i>
+          <div>
+            <span class="contact-name">Sales</span>
+            <a href="mailto:sales@hariomgroup.in">sales@hariomgroup.in</a>
+          </div>
+        </li>
+        <li class="zoom">
+          <i class="fa-solid fa-phone"></i>
+          <div>
+            <span class="contact-name">Phone</span>
+            <a href="tel:+910000000000">kon sa </a>
+          </div>
+        </li>
+        <li class="zoom">
+          <i class="fa-solid fa-location-dot"></i>
+          <div>
+            <span class="contact-name">Address</span>
+            <span>dedo</span>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="section-tag">Common Questions</div>
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item zoom">
+        <h3> decide karo <i class="fa-solid fa-chevron-down"></i></h3>
+        <p>decide karo.</p>
+      </div>
+      <div class="faq-item zoom">
+        <h3>decide karo<i class="fa-solid fa-chevron-down"></i></h3>
+        <p>decide karo.</p>
+      </div>
+      <div class="faq-item zoom">
+        <h3>decide karo <i class="fa-solid fa-chevron-down"></i></h3>
+        <p> decide karo</p>
+      </div>
+      <div class="faq-item zoom">
+        <h3>decide karo <i class="fa-solid fa-chevron-down"></i></h3>
+        <p>decide karo</p>
+      </div>
+      <div class="faq-item zoom">
+        <h3>decideeeee <i class="fa-solid fa-chevron-down"></i></h3>
+        <p>decideeee</p>
+      </div>
+    </section>
+
+  </div><!-- end #content -->
+
+  <footer>
+    <p>decideeee</p>
+  </footer>
+
+  <script src="navbar.js"></script>
+  <script src="counter.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
