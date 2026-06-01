@@ -1,4 +1,8 @@
-
+/* ============================================================
+   HARIOM GROUP — styles.css
+   Theme: White + Kraft Paper texture, organic/natural aesthetic
+   Fonts: Playfair Display (headings) + Jost (body)
+   ============================================================ */
 
 :root {
   --white: #FFFFFF;
@@ -162,7 +166,7 @@ body.bg-paper {
   top: 0;
   z-index: 1000;
   background: var(--white);
-  border-bottom: 1px solid var(--border);
+  border-bottom: 3px solid var(--kraft-deep);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -320,7 +324,53 @@ section p {
   padding: 1.4rem 1rem;
   text-align: center;
   position: relative;
-  overflow: hidden;
+  cursor: pointer;
+  transition: box-shadow 0.25s, transform 0.2s, border-color 0.2s;
+}
+
+.stat-box:hover {
+  border-color: var(--kraft-mid);
+  box-shadow: 0 4px 16px rgba(92,61,30,0.1);
+  transform: translateY(-2px);
+}
+
+.stat-box.expanded {
+  border-color: var(--kraft-dark);
+}
+
+.stat-box-detail {
+  display: none;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed var(--kraft-light);
+  text-align: left;
+}
+
+.stat-box.expanded .stat-box-detail {
+  display: block;
+}
+
+.stat-box-toggle {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--kraft-mid);
+  font-weight: 500;
+}
+
+.stat-box-toggle .fa-chevron-down {
+  font-size: 0.6rem;
+  margin-left: 4px;
+  transition: transform 0.25s;
+}
+
+.stat-box.expanded .stat-box-toggle .fa-chevron-down {
+  transform: rotate(180deg);
 }
 
 .stat-box::before {
