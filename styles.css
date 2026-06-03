@@ -673,3 +673,58 @@ footer {
   .trees-num { font-size: 1.6rem; }
   .trees-inner .fa-tree { font-size: 1.5rem; }
 }
+
+/* ── TEAM BIO (expanded on hover) ── */
+.team-bio {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-top: 0.6rem;
+  padding-top: 0.6rem;
+  border-top: 1px dashed var(--kraft-light);
+  display: none;
+  text-align: left;
+}
+.team-member:hover .team-bio { display: block; }
+
+/* ── VISION / MISSION CALLOUTS ── */
+.callout-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.callout-box {
+  background: var(--kraft-deep);
+  color: var(--kraft-light);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.callout-icon {
+  font-size: 1.3rem;
+  margin-bottom: 0.6rem;
+  color: var(--kraft-light);
+  opacity: 0.8;
+}
+
+.callout-box h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+
+.callout-box p {
+  font-size: 0.85rem;
+  color: rgba(232, 213, 176, 0.85);
+  line-height: 1.7;
+  max-width: none;
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .callout-grid { grid-template-columns: 1fr; }
+}
