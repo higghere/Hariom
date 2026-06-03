@@ -54,7 +54,7 @@
   <nav id="navbar">
     <div class="nav-hover-track" id="navHoverTrack"></div>
     <div class="nav-slider" id="navSlider"></div>
-    <button class="nav-item active" data-index="0" data-section="overview">
+    <button class="nav-item active" data-index="0" data-section="overview" id="aboutNavBtn">
       <span>About Us</span>
     </button>
     <button class="nav-item" data-index="1" data-section="products">
@@ -387,8 +387,108 @@
     <p>© 2024 Hariom Industries Limited · Kanpur, Uttar Pradesh, India 🇮🇳 · <a href="mailto:hariom@hariomgroup.in" style="color:var(--kraft-light);">hariom@hariomgroup.in</a></p>
   </footer>
 
+  <!-- ABOUT POPUP MODAL -->
+  <div id="aboutPopup" class="about-popup" role="dialog" aria-modal="true" aria-label="About Hariom Industries">
+    <div class="about-popup-backdrop"></div>
+    <div class="about-popup-panel">
+
+      <!-- Close button -->
+      <button class="about-popup-close" id="aboutPopupClose" aria-label="Close">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <!-- Slide counter -->
+      <div class="about-popup-counter">
+        <span id="aboutSlideNum">1</span> / <span id="aboutSlideTotal">4</span>
+      </div>
+
+      <!-- Slides wrapper -->
+      <div class="about-popup-slides" id="aboutPopupSlides">
+
+        <!-- SLIDE 1 — image left, text right -->
+        <div class="about-slide about-slide--img-left">
+          <div class="about-slide-media">
+            <div class="about-slide-img asi-1">
+              <i class="fa-solid fa-industry"></i>
+            </div>
+          </div>
+          <div class="about-slide-body">
+            <span class="about-slide-tag">Est. 1998 · Kanpur</span>
+            <h2>Who We Are</h2>
+            <p>Hariom Industries Limited (HOIL) is a public limited company founded by Shri Surendra Gupta, Shri Rajendra Gupta, and Shri Virender Gupta — a prominent name in India's Kraft paper manufacturing industry.</p>
+            <p>Headquartered in Kanpur, Uttar Pradesh, we serve customers across Northern and Central India with high-quality, eco-friendly paper products.</p>
+          </div>
+        </div>
+
+        <!-- SLIDE 2 — text left, image right -->
+        <div class="about-slide about-slide--img-right">
+          <div class="about-slide-body">
+            <span class="about-slide-tag">Sustainability</span>
+            <h2>What We Make</h2>
+            <p>We are a leading manufacturer of Kraft Papers — transforming 100% recycled waste paper into high-strength packaging material. Our products serve industrial packaging, corrugated boards, stationery, and textbook production.</p>
+            <p>Our facility at Bhauti Pratappur, Kanpur Nagar runs fully automated lines with a daily capacity of 400 metric tonnes.</p>
+          </div>
+          <div class="about-slide-media">
+            <div class="about-slide-img asi-2">
+              <i class="fa-solid fa-scroll"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 3 — image left, text right -->
+        <div class="about-slide about-slide--img-left">
+          <div class="about-slide-media">
+            <div class="about-slide-img asi-3">
+              <i class="fa-solid fa-eye"></i>
+            </div>
+          </div>
+          <div class="about-slide-body">
+            <span class="about-slide-tag">Vision &amp; Mission</span>
+            <h2>Where We're Going</h2>
+            <p><strong>Our Vision —</strong> To be recognised as a global manufacturer of innovative paper products, delivering value, integrity, and customer satisfaction in everything we do.</p>
+            <p><strong>Our Mission —</strong> Eco-friendly growth through technological innovation. We achieve the highest stakeholder satisfaction through cost-effectiveness, excellence, and sustainable manufacturing.</p>
+          </div>
+        </div>
+
+        <!-- SLIDE 4 — text left, image right -->
+        <div class="about-slide about-slide--img-right">
+          <div class="about-slide-body">
+            <span class="about-slide-tag">Our Impact</span>
+            <h2>By the Numbers</h2>
+            <ul class="about-slide-stats">
+              <li><strong>26+</strong> Years of Experience</li>
+              <li><strong>400 MT</strong> Daily Production Capacity</li>
+              <li><strong>100%</strong> Eco-Friendly Products</li>
+              <li><strong>3 Grades</strong> — 18 BF, 22 BF, 24 BF</li>
+            </ul>
+            <p>Strategically located in Kanpur, exemplifying environmental responsibility through a fully circular, waste-to-product manufacturing model.</p>
+          </div>
+          <div class="about-slide-media">
+            <div class="about-slide-img asi-4">
+              <i class="fa-solid fa-recycle"></i>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end slides -->
+
+      <!-- Navigation arrows -->
+      <div class="about-popup-nav">
+        <button class="about-nav-btn" id="aboutPrev" aria-label="Previous slide">
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <div class="about-popup-dots" id="aboutDots"></div>
+        <button class="about-nav-btn" id="aboutNext" aria-label="Next slide">
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+
+    </div><!-- end panel -->
+  </div><!-- end popup -->
+
   <script src="navbar.js"></script>
   <script src="counter.js"></script>
   <script src="main.js"></script>
+  <script src="about-popup.js"></script>
 </body>
 </html>
