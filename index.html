@@ -6,7 +6,7 @@
   <title>Hariom Industries Limited — Kraft Paper Manufacturers</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -91,32 +91,63 @@
     <section id="overview">
       <div class="section-tag">Est. Since 1998 · Kanpur, Uttar Pradesh</div>
       <h2>About Us</h2>
-      <p>
-        Hariom Industries Limited (HOIL) is a public limited company established in 1998,
-        headquartered in Kanpur, Uttar Pradesh, India. Founded by Shri Surendra Gupta,
-        Shri Rajendra Gupta, and Shri Virender Gupta, HOIL is a prominent player in the
-        Kraft paper manufacturing industry with its state-of-the-art facility in Bhauti
-        Pratappur, Kanpur Nagar.
-      </p>
-      <p>
-        We are a leading manufacturer and marketer of Kraft Papers, serving customers
-        nationwide across Northern and Central India. Our products find extensive use in
-        industrial applications, packaging materials, stationery, and textbook production.
-        Strategically located, HOIL exemplifies environmental responsibility by transforming
-        recycled waste paper into 100% eco-friendly paper products.
-      </p>
 
-      <!-- VISION & MISSION CALLOUTS -->
-      <div class="callout-grid">
-        <div class="callout-box">
-          <div class="callout-icon"><i class="fa-solid fa-eye"></i></div>
-          <h4>Our Vision</h4>
-          <p>To be recognized as a global manufacturer of innovative paper products — delivering value, integrity, and customer satisfaction in everything we do.</p>
+      <!-- EXPANDABLE BLOB -->
+      <div class="about-blob" id="aboutBlob">
+        <div class="about-blob-preview">
+          <p>Hariom Industries Limited (HOIL) is a public limited company established in 1998, headquartered in Kanpur, Uttar Pradesh. Founded by Shri Surendra Gupta, Shri Rajendra Gupta, and Shri Virender Gupta — HOIL is a prominent player in the Kraft paper manufacturing industry.</p>
+          <button class="blob-toggle" id="blobToggle" onclick="toggleBlob()">
+            Read More <i class="fa-solid fa-chevron-down"></i>
+          </button>
         </div>
-        <div class="callout-box">
-          <div class="callout-icon"><i class="fa-solid fa-bullseye"></i></div>
-          <h4>Our Mission</h4>
-          <p>Eco-friendly growth through technological innovation. We achieve highest stakeholder satisfaction through cost effectiveness, excellence, and sustainable manufacturing.</p>
+        <div class="about-blob-full" id="aboutBlobFull">
+          <p>We are a leading manufacturer and marketer of Kraft Papers, serving customers nationwide across Northern and Central India. Our products find extensive use in industrial applications, packaging materials, stationery, and textbook production.</p>
+          <p>Strategically located, HOIL exemplifies environmental responsibility by transforming recycled waste paper into 100% eco-friendly paper products — contributing to a sustainable and circular economy.</p>
+
+          <div class="callout-grid">
+            <div class="callout-box">
+              <div class="callout-icon"><i class="fa-solid fa-eye"></i></div>
+              <h4>Our Vision</h4>
+              <p>To be recognized as a global manufacturer of innovative paper products — delivering value, integrity, and customer satisfaction in everything we do.</p>
+            </div>
+            <div class="callout-box">
+              <div class="callout-icon"><i class="fa-solid fa-bullseye"></i></div>
+              <h4>Our Mission</h4>
+              <p>Eco-friendly growth through technological innovation. We achieve highest stakeholder satisfaction through cost effectiveness, excellence, and sustainable manufacturing.</p>
+            </div>
+          </div>
+
+          <button class="blob-toggle blob-toggle--close" onclick="toggleBlob()">
+            Show Less <i class="fa-solid fa-chevron-up"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- SCROLL PHOTO STRIP -->
+      <div class="photo-strip" id="photoStrip">
+        <div class="photo-item photo-from-left">
+          <div class="photo-placeholder ph-1">
+            <i class="fa-solid fa-industry"></i>
+            <span>Manufacturing Plant</span>
+          </div>
+        </div>
+        <div class="photo-item photo-from-right">
+          <div class="photo-placeholder ph-2">
+            <i class="fa-solid fa-scroll"></i>
+            <span>Paper Rolls</span>
+          </div>
+        </div>
+        <div class="photo-item photo-from-left">
+          <div class="photo-placeholder ph-3">
+            <i class="fa-solid fa-recycle"></i>
+            <span>Eco Production</span>
+          </div>
+        </div>
+        <div class="photo-item photo-from-right">
+          <div class="photo-placeholder ph-4">
+            <i class="fa-solid fa-truck"></i>
+            <span>Delivery Fleet</span>
+          </div>
         </div>
       </div>
 
@@ -299,13 +330,6 @@
           <div>
             <span class="contact-name">Email</span>
             <a href="mailto:hariom@hariomgroup.in">hariom@hariomgroup.in</a>
-          </div>
-        </li>
-        <li class="zoom">
-          <i class="fa-solid fa-globe"></i>
-          <div>
-            <span class="contact-name">Website</span>
-            <a href="https://www.hariomgroup.in" target="_blank">www.hariomgroup.in</a>
           </div>
         </li>
         <li class="zoom">
