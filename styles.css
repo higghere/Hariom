@@ -1,3 +1,4 @@
+
 /* ============================================================
    HARIOM GROUP — styles.css
    Theme: White + Kraft Paper texture, organic/natural aesthetic
@@ -65,43 +66,7 @@ body.bg-paper {
   text-transform: uppercase;
 }
 
-/* ── LOGO PLACEHOLDER ── */
-#logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 3rem 5% 1rem;
-  background: var(--white);
-}
-
-.logo-placeholder {
-  width: 180px;
-  height: 180px;
-  border: 2px dashed var(--kraft-mid);
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  background: var(--off-white);
-}
-
-.logo-placeholder-text {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--kraft-mid);
-  letter-spacing: 0.15em;
-}
-
-.logo-placeholder-sub {
-  font-size: 0.72rem;
-  color: var(--text-muted);
-  letter-spacing: 0.06em;
-  text-align: center;
-  padding: 0 12px;
-}
+/* Logo styles moved to bottom of file */
 
 /* ── TREES COUNTER ── */
 #trees-counter {
@@ -727,4 +692,97 @@ footer {
 
 @media (max-width: 600px) {
   .callout-grid { grid-template-columns: 1fr; }
+}
+
+/* ── REAL LOGO ── */
+#logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 5%;
+  background: var(--white);
+}
+
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.logo-wrap svg {
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+}
+
+.logo-text-wrap {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.logo-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--kraft-deep);
+  letter-spacing: 0.12em;
+}
+
+.logo-sub {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* ── TEAM CONTACT INFO ── */
+.team-role {
+  font-size: 0.8rem !important;
+  color: var(--kraft-dark) !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.04em;
+}
+
+.team-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 0.7rem;
+  padding-top: 0.7rem;
+  border-top: 1px dashed var(--kraft-light);
+  text-align: left;
+}
+
+.team-contact a,
+.team-contact span {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  line-height: 1.4;
+}
+
+.team-contact a:hover { color: var(--kraft-dark); }
+
+.team-contact i {
+  color: var(--kraft-mid);
+  font-size: 0.7rem;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+/* Override: always show contact, bio on hover */
+.team-member .team-bio { display: none; }
+.team-member:hover .team-bio { display: block; }
+.team-member .team-contact { display: flex; }
+
+/* Wider cards to fit contact info */
+.team-grid {
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important;
 }
