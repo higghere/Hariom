@@ -926,3 +926,370 @@ footer {
   }
   .photo-placeholder { height: 220px; }
 }
+
+/* ============================================================
+   ABOUT POPUP MODAL
+   ============================================================ */
+
+/* Backdrop + outer shell */
+.about-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.about-popup.is-open {
+  pointer-events: all;
+  opacity: 1;
+}
+
+.about-popup-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(44, 28, 10, 0.72);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* Panel */
+.about-popup-panel {
+  position: relative;
+  z-index: 1;
+  width: min(94vw, 980px);
+  max-height: 90vh;
+  background: var(--off-white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 28px 80px rgba(44, 28, 10, 0.45);
+  display: flex;
+  flex-direction: column;
+  transform: translateY(32px) scale(0.97);
+  transition: transform 0.38s cubic-bezier(0.34, 1.3, 0.64, 1);
+}
+
+.about-popup.is-open .about-popup-panel {
+  transform: translateY(0) scale(1);
+}
+
+/* Close button */
+.about-popup-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 10;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: none;
+  background: var(--kraft-deep);
+  color: var(--kraft-light);
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, transform 0.2s;
+}
+.about-popup-close:hover {
+  background: var(--kraft-dark);
+  transform: scale(1.1);
+}
+
+/* Slide counter */
+.about-popup-counter {
+  position: absolute;
+  top: 22px;
+  left: 24px;
+  z-index: 10;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  font-family: 'Jost', sans-serif;
+}
+
+/* Slides wrapper */
+.about-popup-slides {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  flex: 1;
+}
+
+/* Individual slide */
+.about-slide {
+  min-width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+/* Media column */
+.about-slide-media {
+  display: flex;
+  align-items: stretch;
+}
+
+.about-slide-img {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+  color: rgba(255,255,255,0.75);
+  min-height: 420px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Slide image backgrounds — alternating kraft tones */
+.asi-1 { background: linear-gradient(145deg, #8c692a 0%, #5C3D1E 100%); }
+.asi-2 { background: linear-gradient(145deg, #ae8d47 0%, #7a5520 100%); }
+.asi-3 { background: linear-gradient(145deg, #3D6B3A 0%, #2a4a28 100%); }
+.asi-4 { background: linear-gradient(145deg, #5C3D1E 0%, #3a2510 100%); }
+
+/* Paper texture overlay */
+.about-slide-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg, transparent, transparent 3px,
+    rgba(255,255,255,0.04) 3px, rgba(255,255,255,0.04) 4px
+  );
+  pointer-events: none;
+}
+
+/* Animate icon in slide */
+.about-slide-img i {
+  position: relative;
+  z-index: 1;
+  animation: none;
+  transition: transform 0.4s ease;
+}
+
+.about-popup.is-open .about-slide-img i {
+  animation: popIcon 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes popIcon {
+  from { transform: scale(0.5); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+
+/* Text column */
+.about-slide-body {
+  padding: 3.5rem 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.9rem;
+  overflow-y: auto;
+}
+
+.about-slide-tag {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--kraft-dark);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.about-slide-tag::before {
+  content: '';
+  display: block;
+  width: 18px;
+  height: 1.5px;
+  background: var(--kraft-mid);
+  flex-shrink: 0;
+}
+
+.about-slide-body h2 {
+  font-family: 'Robotech GP', 'Jost', sans-serif;
+  font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+  font-weight: 600;
+  color: var(--kraft-deep);
+  line-height: 1.2;
+  margin: 0;
+}
+
+.about-slide-body p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+  max-width: none;
+  margin: 0;
+}
+
+.about-slide-body strong {
+  color: var(--kraft-deep);
+  font-weight: 600;
+}
+
+/* Stats list in slide 4 */
+.about-slide-stats {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  padding: 0.8rem 0;
+  border-top: 1px dashed var(--kraft-light);
+  border-bottom: 1px dashed var(--kraft-light);
+}
+
+.about-slide-stats li {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.about-slide-stats li::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--kraft-mid);
+  flex-shrink: 0;
+}
+
+.about-slide-stats strong {
+  font-family: 'Robotech GP', 'Jost', sans-serif;
+  font-size: 1rem;
+  color: var(--kraft-deep);
+  margin-right: 2px;
+}
+
+/* Bottom navigation bar */
+.about-popup-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  background: var(--white);
+  border-top: 1px solid var(--border);
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.about-nav-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  background: var(--white);
+  color: var(--kraft-deep);
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.15s;
+  flex-shrink: 0;
+}
+.about-nav-btn:hover {
+  background: var(--kraft-deep);
+  color: var(--white);
+  border-color: var(--kraft-deep);
+  transform: scale(1.08);
+}
+.about-nav-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+  transform: none;
+}
+
+/* Dots */
+.about-popup-dots {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.about-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--kraft-light);
+  border: 1.5px solid var(--kraft-mid);
+  cursor: pointer;
+  transition: background 0.25s, transform 0.2s;
+}
+
+.about-dot.active {
+  background: var(--kraft-deep);
+  border-color: var(--kraft-deep);
+  transform: scale(1.25);
+}
+
+/* ── Slide entrance animations ── */
+.about-slide-body {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.45s ease 0.1s, transform 0.45s ease 0.1s;
+}
+
+.about-slide.is-active .about-slide-body {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.about-slide-media {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.45s ease 0.05s, transform 0.45s ease 0.05s;
+}
+
+/* For img-right slides, media comes in from right */
+.about-slide--img-right .about-slide-media {
+  transform: translateX(20px);
+}
+.about-slide--img-right .about-slide-body {
+  transform: translateX(-20px);
+}
+
+.about-slide.is-active .about-slide-media {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── Responsive ── */
+@media (max-width: 700px) {
+  .about-slide {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+
+  .about-slide--img-right {
+    direction: ltr; /* keep text above image */
+  }
+
+  .about-slide--img-right .about-slide-body {
+    order: -1;
+  }
+
+  .about-slide-img {
+    min-height: 180px;
+    font-size: 3.5rem;
+  }
+
+  .about-slide-body {
+    padding: 1.8rem 1.5rem 1.5rem;
+  }
+
+  .about-popup-panel {
+    border-radius: 12px;
+    max-height: 95vh;
+  }
+}
