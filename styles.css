@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Robotech GP';
+  src: url('ROBOTECH_GP.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* ============================================================
    HARIOM GROUP — styles.css
    Theme: White + Kraft Paper texture, organic/natural aesthetic
@@ -58,7 +65,7 @@ body.bg-paper {
   color: var(--kraft-light);
   text-align: center;
   padding: 14px 5%;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Robotech GP', 'Jost', sans-serif;
   font-size: 1.05rem;
   font-weight: 400;
   letter-spacing: 0.22em;
@@ -96,7 +103,7 @@ body.bg-paper {
 }
 
 .trees-num {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Robotech GP', 'Jost', sans-serif;
   font-size: 2rem;
   font-weight: 700;
   line-height: 1;
@@ -186,7 +193,7 @@ body.bg-paper {
 #navToggled { display: none; }
 .nav-title {
   display: none;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Robotech GP', 'Jost', sans-serif;
   font-size: 1.1rem;
   font-weight: 600;
   color: var(--kraft-deep);
@@ -257,7 +264,7 @@ section:last-child { border-bottom: none; }
 }
 
 section h2 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Robotech GP', 'Jost', sans-serif;
   font-size: clamp(2rem, 3.5vw, 2.8rem);
   font-weight: 600;
   color: var(--kraft-deep);
@@ -347,7 +354,7 @@ section p {
 
 .stat-num {
   display: block;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Robotech GP', 'Jost', sans-serif;
   font-size: 1.9rem;
   font-weight: 700;
   color: var(--kraft-deep);
@@ -403,7 +410,7 @@ section p {
 }
 
 .product-card h3 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Robotech GP', 'Jost', sans-serif;
   font-size: 1.4rem;
   font-weight: 600;
   color: var(--kraft-deep);
@@ -468,7 +475,7 @@ section p {
 }
 
 .team-member h3 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Robotech GP', 'Jost', sans-serif;
   font-size: 1rem;
   font-weight: 600;
   color: var(--kraft-deep);
@@ -674,7 +681,7 @@ footer {
 }
 
 .callout-box h4 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Robotech GP', 'Jost', sans-serif;
   font-size: 1.1rem;
   font-weight: 600;
   color: var(--white);
@@ -726,7 +733,7 @@ footer {
 }
 
 .logo-name {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Robotech GP', 'Jost', sans-serif;
   font-size: 2.2rem;
   font-weight: 700;
   color: var(--kraft-deep);
@@ -789,4 +796,133 @@ footer {
 /* Wider cards to fit contact info */
 .team-grid {
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important;
+}
+
+/* ── ABOUT EXPANDABLE BLOB ── */
+.about-blob {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.8rem 2rem;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.about-blob-preview p {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin-bottom: 1.2rem;
+  max-width: none;
+}
+
+.blob-toggle {
+  background: var(--kraft-deep);
+  color: var(--kraft-light);
+  border: none;
+  cursor: pointer;
+  padding: 10px 22px;
+  border-radius: 4px;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s;
+}
+.blob-toggle:hover { background: var(--kraft-dark); }
+.blob-toggle i { transition: transform 0.3s; font-size: 0.75rem; }
+.blob-toggle--close { margin-top: 1.5rem; background: var(--text-muted); }
+.blob-toggle--close:hover { background: var(--text); }
+
+.about-blob-full {
+  display: none;
+  margin-top: 1.4rem;
+  padding-top: 1.4rem;
+  border-top: 1px dashed var(--kraft-light);
+}
+
+.about-blob-full.open { display: block; }
+
+.about-blob-full p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  max-width: none;
+}
+
+/* ── SCROLL PHOTO STRIP ── */
+.photo-strip {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 2.5rem 0;
+  overflow: hidden;
+}
+
+.photo-item {
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  opacity: 0;
+}
+
+.photo-from-left  { transform: translateX(-80px); }
+.photo-from-right { transform: translateX(80px); }
+
+.photo-item.in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.photo-placeholder {
+  width: 100%;
+  height: 200px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: rgba(255,255,255,0.85);
+  position: relative;
+  overflow: hidden;
+}
+
+.photo-placeholder i {
+  font-size: 2.5rem;
+  opacity: 0.7;
+}
+
+/* Each placeholder a different kraft tone */
+.ph-1 { background: linear-gradient(135deg, #8c692a 0%, #5C3D1E 100%); }
+.ph-2 { background: linear-gradient(135deg, #ae8d47 0%, #8c692a 100%); }
+.ph-3 { background: linear-gradient(135deg, #3D6B3A 0%, #2a4a28 100%); }
+.ph-4 { background: linear-gradient(135deg, #5C3D1E 0%, #3a2510 100%); }
+
+/* Paper texture overlay on placeholders */
+.photo-placeholder::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg, transparent, transparent 3px,
+    rgba(255,255,255,0.04) 3px, rgba(255,255,255,0.04) 4px
+  );
+  pointer-events: none;
+}
+
+@media (min-width: 700px) {
+  .photo-strip {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+  }
+  .photo-placeholder { height: 220px; }
 }
