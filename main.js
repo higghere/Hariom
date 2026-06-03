@@ -1,10 +1,51 @@
 /* ============================================================
    main.js — General interactions for Hariom Group website
+   - About blob expand/collapse
+   - Scroll photo strip animation
+   - Stat box expand/collapse
    - FAQ accordion toggle
    - Scroll-reveal fade-in on sections
    ============================================================ */
 
 (function () {
+
+  // ── ABOUT BLOB TOGGLE (also callable from inline onclick) ──
+  window.toggleBlob = function () {
+    var full   = document.getElementById('aboutBlobFull');
+    var toggle = document.getElementById('blobToggle');
+    if (!full) return;
+    var isOpen = full.classList.contains('open');
+    full.classList.toggle('open', !isOpen);
+    if (toggle) {
+      toggle.innerHTML = isOpen
+        ? 'Read More <i class="fa-solid fa-chevron-down"></i>'
+        : 'Read Less <i class="fa-solid fa-chevron-up"></i>';
+    }
+  };
+
+  // ── SCROLL PHOTO STRIP ──
+  var photoItems = document.querySelectorAll('.photo-item');
+
+  if ('IntersectionObserver' in window && photoItems.length) {
+    var photoObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          // stagger each photo slightly
+          var idx = Array.prototype.indexOf.call(photoItems, entry.target);
+          setTimeout(function () {
+            entry.target.classList.add('in-view');
+          }, idx * 120);
+          photoObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    photoItems.forEach(function (el) {
+      photoObserver.observe(el);
+    });
+  } else {
+    photoItems.forEach(function (el) { el.classList.add('in-view'); });
+  }
 
   // ── STAT BOX EXPAND/COLLAPSE ──
   var statBoxes = document.querySelectorAll('.stat-box');
@@ -77,4 +118,3 @@
   document.head.appendChild(style);
 
 })();
-
