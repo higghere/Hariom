@@ -711,14 +711,14 @@ footer {
 
 .logo-wrap {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 0.6rem;
+  gap: 1.4rem;
 }
 
 .logo-wrap svg {
-  width: 80px;
-  height: 80px;
+  width: 110px;
+  height: 110px;
   flex-shrink: 0;
 }
 
@@ -726,28 +726,26 @@ footer {
   display: flex;
   flex-direction: column;
   line-height: 1;
-}
-
-.logo-text-wrap {
-  text-align: center;
+  text-align: left;
 }
 
 .logo-name {
   font-family: 'Robotech GP', 'Jost', sans-serif;
-  font-size: 2.2rem;
+  font-size: 3rem;
   font-weight: 700;
   color: var(--kraft-deep);
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
+  line-height: 1;
 }
 
 .logo-sub {
   font-family: 'Jost', sans-serif;
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   font-weight: 400;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.26em;
   color: var(--text-muted);
   text-transform: uppercase;
-  margin-top: 4px;
+  margin-top: 6px;
 }
 
 /* ── TEAM CONTACT INFO ── */
@@ -1163,4 +1161,77 @@ footer {
   .ap-stat { border-bottom: 1px solid rgba(255,255,255,0.08); }
 
   .ap-text { padding: 1.5rem; }
+}
+
+/* ── INTRO VIDEO SCREEN ── */
+#introScreen {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.7s ease;
+}
+
+#introScreen.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#introVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#introSkip {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.3);
+  backdrop-filter: blur(8px);
+  padding: 10px 20px;
+  border-radius: 100px;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s;
+}
+#introSkip:hover { background: rgba(255,255,255,0.28); }
+
+/* ── TEAM — hover reveals contact only ── */
+.team-member {
+  position: relative;
+  overflow: hidden;
+}
+
+/* hide contact by default, show on hover */
+.team-member .team-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 0.7rem;
+  padding-top: 0.7rem;
+  border-top: 1px dashed var(--kraft-light);
+  text-align: left;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease, max-height 0.35s ease, margin-top 0.3s ease;
+  margin-top: 0;
+}
+
+.team-member:hover .team-contact {
+  opacity: 1;
+  max-height: 120px;
+  margin-top: 0.7rem;
 }
