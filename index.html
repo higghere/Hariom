@@ -313,97 +313,105 @@
     <p>© 2024 Hariom Industries Limited · Kanpur, Uttar Pradesh, India 🇮🇳 · <a href="mailto:hariom@hariomgroup.in" style="color:var(--kraft-light);">hariom@hariomgroup.in</a></p>
   </footer>
 
-  <!-- ABOUT POPUP MODAL -->
+  <!-- ABOUT NETFLIX-STYLE OVERLAY -->
   <div id="aboutPopup" class="about-popup" role="dialog" aria-modal="true" aria-label="About Hariom Industries">
-    <div class="about-popup-backdrop"></div>
-    <div class="about-popup-panel">
 
+    <!-- scrollable panel -->
+    <div class="about-popup-panel" id="aboutPopupPanel">
+
+      <!-- sticky close button -->
       <button class="about-popup-close" id="aboutPopupClose" aria-label="Close">
-        <i class="fa-solid fa-xmark"></i>
+        <i class="fa-solid fa-xmark"></i> Close
       </button>
 
-      <div class="about-popup-counter">
-        <span id="aboutSlideNum">1</span> / <span id="aboutSlideTotal">4</span>
+      <!-- ── HERO BANNER ── -->
+      <div class="ap-hero">
+        <div class="ap-hero-bg asi-1"></div>
+        <div class="ap-hero-content">
+          <span class="ap-tag">Est. 1998 · Kanpur, Uttar Pradesh</span>
+          <h1 class="ap-title">Hariom Industries<br>Limited</h1>
+          <p class="ap-lead">India's trusted Kraft paper manufacturer — built on 26 years of expertise, 100% recycled materials, and a commitment to sustainable growth.</p>
+        </div>
       </div>
 
-      <div class="about-popup-slides" id="aboutPopupSlides">
-
-        <!-- SLIDE 1 -->
-        <div class="about-slide about-slide--img-left">
-          <div class="about-slide-media">
-            <div class="about-slide-img asi-1">
-              <i class="fa-solid fa-industry"></i>
-            </div>
-          </div>
-          <div class="about-slide-body">
-            <span class="about-slide-tag">Est. 1998 · Kanpur</span>
-            <h2>Who We Are</h2>
-            <p>Hariom Industries Limited (HOIL) is a public limited company founded by Shri Surendra Gupta, Shri Rajendra Gupta, and Shri Virender Gupta — a prominent name in India's Kraft paper manufacturing industry.</p>
-            <p>Headquartered in Kanpur, Uttar Pradesh, we serve customers across Northern and Central India with high-quality, eco-friendly paper products.</p>
-          </div>
+      <!-- ── SECTION 1: Who We Are ── -->
+      <div class="ap-row reveal-item from-left">
+        <div class="ap-img asi-1">
+          <i class="fa-solid fa-industry"></i>
+          <span>Our Story</span>
         </div>
-
-        <!-- SLIDE 2 -->
-        <div class="about-slide about-slide--img-right">
-          <div class="about-slide-body">
-            <span class="about-slide-tag">Sustainability</span>
-            <h2>What We Make</h2>
-            <p>We are a leading manufacturer of Kraft Papers — transforming 100% recycled waste paper into high-strength packaging material. Our products serve industrial packaging, corrugated boards, stationery, and textbook production.</p>
-            <p>Our facility at Bhauti Pratappur, Kanpur Nagar runs fully automated lines with a daily capacity of 400 metric tonnes.</p>
-          </div>
-          <div class="about-slide-media">
-            <div class="about-slide-img asi-2">
-              <i class="fa-solid fa-scroll"></i>
-            </div>
-          </div>
+        <div class="ap-text">
+          <span class="ap-section-tag">Who We Are</span>
+          <h2>A Legacy of Quality Paper Manufacturing</h2>
+          <p>Hariom Industries Limited (HOIL) is a public limited company founded in 1998 by Shri Surendra Gupta, Shri Rajendra Gupta, and Shri Virender Gupta. Headquartered in Kanpur, Uttar Pradesh, we are one of the most prominent players in India's Kraft paper manufacturing industry.</p>
+          <p>From a regional supplier to a nationally recognised manufacturer, HOIL has grown steadily — always grounded in integrity, innovation, and a deep respect for the environment.</p>
         </div>
-
-        <!-- SLIDE 3 -->
-        <div class="about-slide about-slide--img-left">
-          <div class="about-slide-media">
-            <div class="about-slide-img asi-3">
-              <i class="fa-solid fa-eye"></i>
-            </div>
-          </div>
-          <div class="about-slide-body">
-            <span class="about-slide-tag">Vision &amp; Mission</span>
-            <h2>Where We're Going</h2>
-            <p><strong>Our Vision —</strong> To be recognised as a global manufacturer of innovative paper products, delivering value, integrity, and customer satisfaction in everything we do.</p>
-            <p><strong>Our Mission —</strong> Eco-friendly growth through technological innovation. We achieve the highest stakeholder satisfaction through cost-effectiveness, excellence, and sustainable manufacturing.</p>
-          </div>
-        </div>
-
-        <!-- SLIDE 4 -->
-        <div class="about-slide about-slide--img-right">
-          <div class="about-slide-body">
-            <span class="about-slide-tag">Our Impact</span>
-            <h2>By the Numbers</h2>
-            <ul class="about-slide-stats">
-              <li><strong>26+</strong> Years of Experience</li>
-              <li><strong>400 MT</strong> Daily Production Capacity</li>
-              <li><strong>100%</strong> Eco-Friendly Products</li>
-              <li><strong>3 Grades</strong> — 18 BF, 22 BF, 24 BF</li>
-            </ul>
-            <p>Strategically located in Kanpur, exemplifying environmental responsibility through a fully circular, waste-to-product manufacturing model.</p>
-          </div>
-          <div class="about-slide-media">
-            <div class="about-slide-img asi-4">
-              <i class="fa-solid fa-recycle"></i>
-            </div>
-          </div>
-        </div>
-
-      </div><!-- end slides -->
-
-      <div class="about-popup-nav">
-        <button class="about-nav-btn" id="aboutPrev" aria-label="Previous slide">
-          <i class="fa-solid fa-arrow-left"></i>
-        </button>
-        <div class="about-popup-dots" id="aboutDots"></div>
-        <button class="about-nav-btn" id="aboutNext" aria-label="Next slide">
-          <i class="fa-solid fa-arrow-right"></i>
-        </button>
       </div>
+
+      <!-- ── SECTION 2: What We Make ── -->
+      <div class="ap-row ap-row--flip reveal-item from-right">
+        <div class="ap-text">
+          <span class="ap-section-tag">What We Make</span>
+          <h2>Kraft Paper for Every Application</h2>
+          <p>We manufacture and market Kraft Papers serving customers across Northern and Central India. Our products are used in industrial packaging, corrugated boards, stationery, and textbook production.</p>
+          <p>Our facility at Bhauti Pratappur, Kanpur Nagar runs fully automated production lines with a daily capacity of <strong>400 metric tonnes</strong> — producing Kraft paper in 18 BF, 22 BF, and 24 BF grades, all available in GSMs from 80 to 180.</p>
+        </div>
+        <div class="ap-img asi-2">
+          <i class="fa-solid fa-scroll"></i>
+          <span>Our Product</span>
+        </div>
+      </div>
+
+      <!-- ── STATS ROW ── -->
+      <div class="ap-stats-row reveal-item from-left">
+        <div class="ap-stat">
+          <span class="ap-stat-num">26+</span>
+          <span class="ap-stat-label">Years of Experience</span>
+        </div>
+        <div class="ap-stat">
+          <span class="ap-stat-num">400 MT</span>
+          <span class="ap-stat-label">Daily Production</span>
+        </div>
+        <div class="ap-stat">
+          <span class="ap-stat-num">100%</span>
+          <span class="ap-stat-label">Eco-Friendly</span>
+        </div>
+        <div class="ap-stat">
+          <span class="ap-stat-num">3 BF</span>
+          <span class="ap-stat-label">Grades Available</span>
+        </div>
+      </div>
+
+      <!-- ── SECTION 3: Sustainability ── -->
+      <div class="ap-row reveal-item from-right">
+        <div class="ap-img asi-3">
+          <i class="fa-solid fa-recycle"></i>
+          <span>Eco Manufacturing</span>
+        </div>
+        <div class="ap-text">
+          <span class="ap-section-tag">Sustainability</span>
+          <h2>100% Recycled. Zero Compromise.</h2>
+          <p>Strategically located within the country, Hariom Industries exemplifies environmental responsibility by transforming recycled waste paper into high-quality, 100% eco-friendly paper products.</p>
+          <p>This approach not only minimises environmental impact but contributes to a sustainable and circular economy — turning what was once waste into something the world can use.</p>
+        </div>
+      </div>
+
+      <!-- ── SECTION 4: Vision & Mission ── -->
+      <div class="ap-row ap-row--flip reveal-item from-left">
+        <div class="ap-text">
+          <span class="ap-section-tag">Vision &amp; Mission</span>
+          <h2>Where We're Headed</h2>
+          <p><strong>Our Vision —</strong> To be recognised as a global manufacturer of innovative paper products, delivering value, integrity, and customer satisfaction in everything we do.</p>
+          <p><strong>Our Mission —</strong> Eco-friendly growth through technological innovation. We achieve the highest stakeholder satisfaction through cost-effectiveness, excellence, and sustainable manufacturing.</p>
+        </div>
+        <div class="ap-img asi-4">
+          <i class="fa-solid fa-eye"></i>
+          <span>Our Vision</span>
+        </div>
+      </div>
+
+      <!-- ── BOTTOM PADDING ── -->
+      <div style="height: 4rem;"></div>
 
     </div><!-- end panel -->
   </div><!-- end popup -->
