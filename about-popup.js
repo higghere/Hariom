@@ -134,8 +134,6 @@
   var aboutNavBtn = document.getElementById('aboutNavBtn');
   if (aboutNavBtn) {
     aboutNavBtn.addEventListener('click', function (e) {
-      // Let the navbar.js handle active state / scroll as normal,
-      // but ALSO open the popup
       openPopup();
     });
   }
