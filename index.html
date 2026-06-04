@@ -92,62 +92,14 @@
       <div class="section-tag">Est. Since 1998 · Kanpur, Uttar Pradesh</div>
       <h2>About Us</h2>
 
-      <!-- EXPANDABLE BLOB -->
-      <div class="about-blob" id="aboutBlob">
-        <div class="about-blob-preview">
-          <p>Hariom Industries Limited (HOIL) is a public limited company established in 1998, headquartered in Kanpur, Uttar Pradesh. Founded by Shri Surendra Gupta, Shri Rajendra Gupta, and Shri Virender Gupta — HOIL is a prominent player in the Kraft paper manufacturing industry.</p>
-          <button class="blob-toggle" id="blobToggle" onclick="toggleBlob()">
-            Read More <i class="fa-solid fa-chevron-down"></i>
-          </button>
-        </div>
-        <div class="about-blob-full" id="aboutBlobFull">
-          <p>We are a leading manufacturer and marketer of Kraft Papers, serving customers nationwide across Northern and Central India. Our products find extensive use in industrial applications, packaging materials, stationery, and textbook production.</p>
-          <p>Strategically located, HOIL exemplifies environmental responsibility by transforming recycled waste paper into 100% eco-friendly paper products — contributing to a sustainable and circular economy.</p>
-
-          <div class="callout-grid">
-            <div class="callout-box">
-              <div class="callout-icon"><i class="fa-solid fa-eye"></i></div>
-              <h4>Our Vision</h4>
-              <p>To be recognized as a global manufacturer of innovative paper products — delivering value, integrity, and customer satisfaction in everything we do.</p>
-            </div>
-            <div class="callout-box">
-              <div class="callout-icon"><i class="fa-solid fa-bullseye"></i></div>
-              <h4>Our Mission</h4>
-              <p>Eco-friendly growth through technological innovation. We achieve highest stakeholder satisfaction through cost effectiveness, excellence, and sustainable manufacturing.</p>
-            </div>
-          </div>
-
-          <button class="blob-toggle blob-toggle--close" onclick="toggleBlob()">
-            Show Less <i class="fa-solid fa-chevron-up"></i>
-          </button>
-        </div>
-      </div>
-
-      <!-- SCROLL PHOTO STRIP -->
-      <div class="photo-strip" id="photoStrip">
-        <div class="photo-item photo-from-left">
-          <div class="photo-placeholder ph-1">
-            <i class="fa-solid fa-industry"></i>
-            <span>Manufacturing Plant</span>
-          </div>
-        </div>
-        <div class="photo-item photo-from-right">
-          <div class="photo-placeholder ph-2">
-            <i class="fa-solid fa-scroll"></i>
-            <span>Paper Rolls</span>
-          </div>
-        </div>
-        <div class="photo-item photo-from-left">
-          <div class="photo-placeholder ph-3">
-            <i class="fa-solid fa-recycle"></i>
-            <span>Eco Production</span>
-          </div>
-        </div>
-        <div class="photo-item photo-from-right">
-          <div class="photo-placeholder ph-4">
-            <i class="fa-solid fa-truck"></i>
-            <span>Delivery Fleet</span>
-          </div>
+      <!-- COMPACT CARD -->
+      <div class="about-card" id="aboutCard" onclick="document.getElementById('aboutNavBtn').click()">
+        <p class="about-intro">Hariom Industries Limited is a public limited company established in 1998, headquartered in Kanpur, Uttar Pradesh — a prominent player in India's Kraft paper manufacturing industry.</p>
+        <p class="about-intro">Founded by Shri Surendra, Shri Rajendra, and Shri Virender Gupta, we manufacture 100% eco-friendly Kraft paper from recycled waste, serving Northern and Central India with a daily capacity of 400 MT.</p>
+        <p class="about-intro">Our fully automated facility in Bhauti Pratappur produces Kraft paper across 3 burst factor grades (18 BF, 22 BF, 24 BF), in GSMs from 80 to 180 — built on 26 years of expertise and a commitment to sustainable manufacturing.</p>
+        <div class="about-card-cta">
+          <span>Click to explore more</span>
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
         </div>
       </div>
 
@@ -193,7 +145,6 @@
       <h2>Our Products</h2>
       <p>We manufacture high-quality Kraft paper serving Northern and Central India. All grades are available in GSMs from 80 to 180, with fully automated production ensuring consistent quality and minimal odor.</p>
       <div class="products-grid">
-
         <div class="product-card zoom">
           <div class="product-icon"><i class="fa-solid fa-box-open"></i></div>
           <h3>Kraft Paper — 18 BF</h3>
@@ -205,7 +156,6 @@
             <span>Eco-Friendly</span>
           </div>
         </div>
-
         <div class="product-card zoom">
           <div class="product-icon"><i class="fa-solid fa-industry"></i></div>
           <h3>Kraft Paper — 22 BF</h3>
@@ -217,7 +167,6 @@
             <span>Low Odor</span>
           </div>
         </div>
-
         <div class="product-card zoom">
           <div class="product-icon"><i class="fa-solid fa-shield-halved"></i></div>
           <h3>Kraft Paper — 24 BF</h3>
@@ -229,7 +178,6 @@
             <span>Automated Production</span>
           </div>
         </div>
-
       </div>
       <p class="products-note"><i class="fa-solid fa-circle-info"></i> All products available in custom GSM variations. <a href="#contact">Contact us</a> for bulk orders and custom requirements.</p>
     </section>
@@ -239,77 +187,61 @@
       <div class="section-tag">The People Behind It</div>
       <h2>Our Team</h2>
       <div class="team-grid">
-
         <div class="team-member zoom">
           <i class="fa-solid fa-circle-user"></i>
           <h3>Virendra Kumar Gupta</h3>
           <p class="team-role">Managing Director</p>
-          <div class="team-bio">
-            35 years of experience in manufacturing. A visionary leader driving HOIL's growth, market expansion, and customer satisfaction.
-          </div>
+          <div class="team-bio">35 years of experience in manufacturing. A visionary leader driving HOIL's growth, market expansion, and customer satisfaction.</div>
           <div class="team-contact">
             <a href="tel:+919081111119"><i class="fa-solid fa-phone"></i> +91-9081111119</a>
             <a href="mailto:hariom@hariomgroup.in"><i class="fa-solid fa-envelope"></i> hariom@hariomgroup.in</a>
             <span><i class="fa-solid fa-location-dot"></i> 74/25-A Dhankutti, Kanpur</span>
           </div>
         </div>
-
         <div class="team-member zoom">
           <i class="fa-solid fa-circle-user"></i>
           <h3>Rajendra Kumar Gupta</h3>
           <p class="team-role">Administrative Director</p>
-          <div class="team-bio">
-            40 years of experience in administration and operations. Oversees all operational functions and ensures smooth day-to-day management.
-          </div>
+          <div class="team-bio">40 years of experience in administration and operations. Oversees all operational functions and ensures smooth day-to-day management.</div>
           <div class="team-contact">
             <a href="tel:+919081111119"><i class="fa-solid fa-phone"></i> +91-9081111119</a>
             <a href="mailto:hariom@hariomgroup.in"><i class="fa-solid fa-envelope"></i> hariom@hariomgroup.in</a>
             <span><i class="fa-solid fa-location-dot"></i> Kanpur, Uttar Pradesh</span>
           </div>
         </div>
-
         <div class="team-member zoom">
           <i class="fa-solid fa-circle-user"></i>
           <h3>Surendra Kumar Gupta</h3>
           <p class="team-role">Finance Director</p>
-          <div class="team-bio">
-            30 years of experience in finance and accounting. Responsible for financial planning, budgeting, treasury management, and financial reporting.
-          </div>
+          <div class="team-bio">30 years of experience in finance and accounting. Responsible for financial planning, budgeting, treasury management, and financial reporting.</div>
           <div class="team-contact">
             <a href="tel:+919081111119"><i class="fa-solid fa-phone"></i> +91-9081111119</a>
             <a href="mailto:hariom@hariomgroup.in"><i class="fa-solid fa-envelope"></i> hariom@hariomgroup.in</a>
             <span><i class="fa-solid fa-location-dot"></i> Kanpur, Uttar Pradesh</span>
           </div>
         </div>
-
         <div class="team-member zoom">
           <i class="fa-solid fa-circle-user"></i>
           <h3>Saubhya Gupta</h3>
           <p class="team-role">Director</p>
-          <div class="team-bio">
-            Director at Hariom Industries Limited, based out of Kanpur. Focused on business development and strategic operations.
-          </div>
+          <div class="team-bio">Director at Hariom Industries Limited, based out of Kanpur. Focused on business development and strategic operations.</div>
           <div class="team-contact">
             <a href="tel:+918291111119"><i class="fa-solid fa-phone"></i> +91-82911 11119</a>
             <a href="mailto:saubhya@hariomgroup.in"><i class="fa-solid fa-envelope"></i> saubhya@hariomgroup.in</a>
             <span><i class="fa-solid fa-location-dot"></i> 74/25-A Dhankutti, Kanpur</span>
           </div>
         </div>
-
         <div class="team-member zoom">
           <i class="fa-solid fa-circle-user"></i>
           <h3>Anshul Gupta</h3>
           <p class="team-role">Director</p>
-          <div class="team-bio">
-            Director at Hariom Industries Limited, based in Unnao. Contributes to the company's growth in operations and client relationships.
-          </div>
+          <div class="team-bio">Director at Hariom Industries Limited, based in Unnao. Contributes to the company's growth in operations and client relationships.</div>
           <div class="team-contact">
             <a href="tel:+919081111119"><i class="fa-solid fa-phone"></i> +91-90811 11119</a>
             <a href="mailto:info@hariomgroup.in"><i class="fa-solid fa-envelope"></i> info@hariomgroup.in</a>
             <span><i class="fa-solid fa-location-dot"></i> Orahar, Dahi Chauki, Unnao</span>
           </div>
         </div>
-
       </div>
     </section>
 
@@ -353,32 +285,26 @@
     <section id="faq">
       <div class="section-tag">Common Questions</div>
       <h2>Frequently Asked Questions</h2>
-
       <div class="faq-item zoom">
         <h3>What Kraft paper grades do you manufacture? <i class="fa-solid fa-chevron-down"></i></h3>
         <p>We manufacture Kraft paper in three burst factor grades — 18 BF, 22 BF, and 24 BF — all available in GSMs ranging from 80 to 180. Custom GSM variations are also available based on your specific requirements.</p>
       </div>
-
       <div class="faq-item zoom">
         <h3>What is your daily production capacity? <i class="fa-solid fa-chevron-down"></i></h3>
         <p>Our manufacturing facility in Bhauti Pratappur, Kanpur Nagar has a daily production capacity of 400 metric tonnes. Our fully automated production lines ensure consistent quality and efficiency across every batch.</p>
       </div>
-
       <div class="faq-item zoom">
         <h3>Which regions of India do you supply to? <i class="fa-solid fa-chevron-down"></i></h3>
         <p>We primarily serve the Northern and Central regions of India, with customers across Uttar Pradesh, Delhi, Madhya Pradesh, Rajasthan, and neighbouring states. Contact us to discuss delivery to your location.</p>
       </div>
-
       <div class="faq-item zoom">
         <h3>Are your products eco-friendly? <i class="fa-solid fa-chevron-down"></i></h3>
         <p>Yes. All our Kraft paper products are 100% eco-friendly, manufactured by transforming recycled waste paper into high-quality paper products. This circular approach minimizes environmental impact and supports sustainable industry practices.</p>
       </div>
-
       <div class="faq-item zoom">
         <h3>How can I place a bulk order or request samples? <i class="fa-solid fa-chevron-down"></i></h3>
         <p>You can reach us by phone at +91-9081111119 or email us at hariom@hariomgroup.in. We welcome bulk inquiries and are happy to provide samples of specific grades and GSMs before you commit to a full order.</p>
       </div>
-
     </section>
 
   </div><!-- end #content -->
@@ -392,20 +318,17 @@
     <div class="about-popup-backdrop"></div>
     <div class="about-popup-panel">
 
-      <!-- Close button -->
       <button class="about-popup-close" id="aboutPopupClose" aria-label="Close">
         <i class="fa-solid fa-xmark"></i>
       </button>
 
-      <!-- Slide counter -->
       <div class="about-popup-counter">
         <span id="aboutSlideNum">1</span> / <span id="aboutSlideTotal">4</span>
       </div>
 
-      <!-- Slides wrapper -->
       <div class="about-popup-slides" id="aboutPopupSlides">
 
-        <!-- SLIDE 1 — image left, text right -->
+        <!-- SLIDE 1 -->
         <div class="about-slide about-slide--img-left">
           <div class="about-slide-media">
             <div class="about-slide-img asi-1">
@@ -420,7 +343,7 @@
           </div>
         </div>
 
-        <!-- SLIDE 2 — text left, image right -->
+        <!-- SLIDE 2 -->
         <div class="about-slide about-slide--img-right">
           <div class="about-slide-body">
             <span class="about-slide-tag">Sustainability</span>
@@ -435,7 +358,7 @@
           </div>
         </div>
 
-        <!-- SLIDE 3 — image left, text right -->
+        <!-- SLIDE 3 -->
         <div class="about-slide about-slide--img-left">
           <div class="about-slide-media">
             <div class="about-slide-img asi-3">
@@ -450,7 +373,7 @@
           </div>
         </div>
 
-        <!-- SLIDE 4 — text left, image right -->
+        <!-- SLIDE 4 -->
         <div class="about-slide about-slide--img-right">
           <div class="about-slide-body">
             <span class="about-slide-tag">Our Impact</span>
@@ -472,7 +395,6 @@
 
       </div><!-- end slides -->
 
-      <!-- Navigation arrows -->
       <div class="about-popup-nav">
         <button class="about-nav-btn" id="aboutPrev" aria-label="Previous slide">
           <i class="fa-solid fa-arrow-left"></i>
