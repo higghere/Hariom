@@ -1,4 +1,3 @@
-
 /* ============================================================
    navbar.js — Pill slider navbar for Hariom Group
    Ported from AtlanticAxis Studios template
