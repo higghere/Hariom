@@ -1,83 +1,97 @@
 /* ============================================================
    navbar.js — Pill slider navbar for Hariom Group
-   Ported from AtlanticAxis Studios template
+   Works on both desktop and mobile (horizontal scroll)
    ============================================================ */
 
 (function () {
-  const navbar = document.getElementById('navbar');
-  const slider = document.getElementById('navSlider');
-  const hoverTrack = document.getElementById('navHoverTrack');
-  const navItems = document.querySelectorAll('.nav-item');
+  var navbar    = document.getElementById('navbar');
+  var slider    = document.getElementById('navSlider');
+  var hoverTrack = document.getElementById('navHoverTrack');
+  var navItems  = document.querySelectorAll('.nav-item');
 
   if (!navbar || !slider || !navItems.length) return;
 
-  // ── position slider under a given button ──
+  // ── Position slider under a given button ──
   function positionSlider(btn) {
-    const navRect = navbar.getBoundingClientRect();
-    const btnRect = btn.getBoundingClientRect();
-    slider.style.left = (btnRect.left - navRect.left) + 'px';
-    slider.style.top = (btnRect.top - navRect.top) + 'px';
-    slider.style.width = btnRect.width + 'px';
+    var navRect = navbar.getBoundingClientRect();
+    var btnRect = btn.getBoundingClientRect();
+    // offset accounts for navbar's own scroll position
+    slider.style.left   = (btnRect.left - navRect.left + navbar.scrollLeft) + 'px';
+    slider.style.top    = (btnRect.top  - navRect.top) + 'px';
+    slider.style.width  = btnRect.width + 'px';
     slider.style.height = btnRect.height + 'px';
   }
 
-  // ── position hover track under a given button ──
+  // ── Position hover track ──
   function positionHoverTrack(btn) {
-    const navRect = navbar.getBoundingClientRect();
-    const btnRect = btn.getBoundingClientRect();
-    hoverTrack.style.left = (btnRect.left - navRect.left) + 'px';
-    hoverTrack.style.top = (btnRect.top - navRect.top) + 'px';
-    hoverTrack.style.width = btnRect.width + 'px';
+    var navRect = navbar.getBoundingClientRect();
+    var btnRect = btn.getBoundingClientRect();
+    hoverTrack.style.left   = (btnRect.left - navRect.left + navbar.scrollLeft) + 'px';
+    hoverTrack.style.top    = (btnRect.top  - navRect.top) + 'px';
+    hoverTrack.style.width  = btnRect.width + 'px';
     hoverTrack.style.height = btnRect.height + 'px';
     hoverTrack.style.opacity = '1';
   }
 
-  // ── initialise to the active item ──
-  function init() {
-    const active = navbar.querySelector('.nav-item.active');
-    if (active) positionSlider(active);
+  // ── Scroll active pill into view on mobile ──
+  function scrollActiveIntoView(btn) {
+    var navRect  = navbar.getBoundingClientRect();
+    var btnRect  = btn.getBoundingClientRect();
+    var btnLeft  = btnRect.left - navRect.left + navbar.scrollLeft;
+    var btnRight = btnLeft + btnRect.width;
+    var visible  = navbar.scrollLeft + navbar.clientWidth;
+
+    if (btnLeft < navbar.scrollLeft + 8) {
+      navbar.scrollTo({ left: btnLeft - 8, behavior: 'smooth' });
+    } else if (btnRight > visible - 8) {
+      navbar.scrollTo({ left: btnRight - navbar.clientWidth + 8, behavior: 'smooth' });
+    }
   }
 
-  // ── click: move slider, update active, scroll to section ──
+  // ── Init slider on active item ──
+  function init() {
+    var active = navbar.querySelector('.nav-item.active');
+    if (active) {
+      positionSlider(active);
+      scrollActiveIntoView(active);
+    }
+  }
+
+  // ── Click handler ──
   navItems.forEach(function (btn) {
     btn.addEventListener('click', function () {
       navItems.forEach(function (b) { b.classList.remove('active'); });
       btn.classList.add('active');
       positionSlider(btn);
+      scrollActiveIntoView(btn);
 
-      const section = document.getElementById(btn.dataset.section);
-      if (section) {
-        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+      var section = document.getElementById(btn.dataset.section);
+      if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
 
-    // hover track
-    btn.addEventListener('mouseenter', function () {
-      positionHoverTrack(btn);
-    });
-
-    btn.addEventListener('mouseleave', function () {
-      hoverTrack.style.opacity = '0';
-    });
+    btn.addEventListener('mouseenter', function () { positionHoverTrack(btn); });
+    btn.addEventListener('mouseleave', function () { hoverTrack.style.opacity = '0'; });
   });
 
-  // ── update active nav item on scroll ──
-  const sections = [];
+  // ── Re-position slider when navbar scrolls (mobile) ──
+  navbar.addEventListener('scroll', function () {
+    var active = navbar.querySelector('.nav-item.active');
+    if (active) positionSlider(active);
+  }, { passive: true });
+
+  // ── Scroll-spy: update active on page scroll ──
+  var sections = [];
   navItems.forEach(function (btn) {
-    const sec = document.getElementById(btn.dataset.section);
+    var sec = document.getElementById(btn.dataset.section);
     if (sec) sections.push({ btn: btn, sec: sec });
   });
 
   window.addEventListener('scroll', function () {
-    let current = null;
-    const scrollY = window.scrollY + 120;
-
+    var scrollY = window.scrollY + 120;
+    var current = null;
     sections.forEach(function (item) {
-      if (item.sec.offsetTop <= scrollY) {
-        current = item;
-      }
+      if (item.sec.offsetTop <= scrollY) current = item;
     });
-
     if (current) {
       navItems.forEach(function (b) { b.classList.remove('active'); });
       current.btn.classList.add('active');
@@ -85,10 +99,8 @@
     }
   }, { passive: true });
 
-  // ── re-init on resize ──
+  // ── Re-init on resize ──
   window.addEventListener('resize', init);
-
-  // ── run init after fonts/layout settle ──
   window.addEventListener('load', init);
   init();
 })();
