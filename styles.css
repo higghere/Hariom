@@ -189,45 +189,151 @@ body.bg-paper {
 .nav-item:hover { color: var(--kraft-deep); }
 .nav-item.active { color: var(--white); }
 
-/* Mobile hamburger elements — hidden by default on desktop */
+/* ── MOBILE NAV — hidden on desktop ── */
 #navToggled { display: none; }
+
 .nav-title {
   display: none;
   font-family: 'Robotech GP', 'Jost', sans-serif;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 600;
   color: var(--kraft-deep);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
 }
-#toggleNav { display: none; cursor: pointer; color: var(--kraft-deep); font-size: 1.3rem; }
 
-.mobile-nav-list {
+#toggleNav {
   display: none;
-  list-style: none;
+  cursor: pointer;
+  color: var(--kraft-deep);
+  font-size: 1.3rem;
+  width: 38px;
+  height: 38px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+#toggleNav:hover { background: var(--cream-dark); }
+
+/* Full-screen drawer */
+.mobile-nav-list {
+  display: flex;
   flex-direction: column;
-  gap: 0;
-  position: absolute;
-  top: 100%;
-  left: 0;
+  list-style: none;
+  position: fixed;
+  top: 0;
   right: 0;
+  bottom: 0;
+  width: min(80vw, 300px);
   background: var(--white);
-  border-bottom: 1px solid var(--border);
-  padding: 0.5rem 5%;
-  box-shadow: 0 4px 16px rgba(92,61,30,0.08);
+  border-left: 3px solid var(--kraft-deep);
+  padding: 5rem 0 2rem;
+  box-shadow: -8px 0 32px rgba(92,61,30,0.15);
+  z-index: 998;
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+  overflow-y: auto;
+}
+
+/* Drawer backdrop */
+.mobile-nav-list::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  right: min(80vw, 300px);
+  background: rgba(44,28,10,0.45);
+  backdrop-filter: blur(3px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+  z-index: -1;
+}
+
+#navToggled:checked ~ .mobile-nav-list {
+  transform: translateX(0);
+}
+
+#navToggled:checked ~ .mobile-nav-list::before {
+  opacity: 1;
+  pointer-events: all;
 }
 
 .mobile-nav-list a {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 12px;
   text-decoration: none;
-  color: var(--text);
-  font-size: 0.95rem;
-  padding: 0.75rem 0;
+  color: var(--text-muted);
+  font-family: 'Jost', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 1rem 1.8rem;
+  border-left: 3px solid transparent;
+  margin-left: -3px;
+  transition: color 0.2s, background 0.2s, border-color 0.2s;
+  letter-spacing: 0.03em;
+}
+
+.mobile-nav-list a:hover {
+  color: var(--kraft-deep);
+  background: var(--off-white);
+}
+
+.mobile-nav-list a.active {
+  color: var(--kraft-deep);
+  font-weight: 600;
+  border-left-color: var(--kraft-deep);
+  background: var(--off-white);
+}
+
+/* Nav icons in mobile drawer */
+.mobile-nav-list a i {
+  font-size: 0.85rem;
+  width: 18px;
+  text-align: center;
+  color: var(--kraft-mid);
+  flex-shrink: 0;
+}
+
+.mobile-nav-list a.active i { color: var(--kraft-deep); }
+
+/* Drawer header — logo area */
+.mobile-drawer-header {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  padding: 1.2rem 1.8rem;
   border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mobile-drawer-logo {
+  font-family: 'Robotech GP', 'Jost', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--kraft-deep);
+  letter-spacing: 0.08em;
+}
+
+.mobile-drawer-close {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 4px;
   transition: color 0.2s;
 }
-.mobile-nav-list li:last-child a { border-bottom: none; }
-.mobile-nav-list a:hover,
-.mobile-nav-list a.active { color: var(--kraft-dark); font-weight: 500; }
+.mobile-drawer-close:hover { color: var(--kraft-deep); }
+
+/* Divider inside drawer */
+.mobile-nav-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 0.5rem 1.8rem;
+}
 
 /* ── CONTENT WRAPPER ── */
 #content {
@@ -610,39 +716,60 @@ footer {
 
 /* ── RESPONSIVE ── */
 @media (max-width: 820px) {
-  /* Hide desktop pill nav items */
+  /* Hide desktop pill nav */
   .nav-item { display: none; }
   .nav-slider, .nav-hover-track { display: none; }
 
   /* Show mobile elements */
   .nav-title { display: block; }
-  #toggleNav { display: block; margin-left: auto; }
+  #toggleNav { display: flex; margin-left: auto; }
 
   #navbar {
     justify-content: space-between;
     padding: 12px 5%;
   }
 
-  #navToggled:checked ~ .mobile-nav-list {
-    display: flex;
-  }
+  /* Logo: smaller on mobile */
+  .logo-wrap svg { width: 70px; height: 70px; }
+  .logo-name { font-size: 2rem; }
+  .logo-sub { font-size: 0.65rem; }
+  #logo { padding: 1.5rem 5%; }
 
-  .overview-stats {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  /* Stats: 2 columns */
+  .overview-stats { grid-template-columns: repeat(2, 1fr); }
 
-  .team-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
+  /* Team: 2 columns */
+  .team-grid { grid-template-columns: repeat(2, 1fr) !important; }
 
-@media (max-width: 520px) {
-  .overview-stats { grid-template-columns: 1fr 1fr; }
-  .team-grid { grid-template-columns: 1fr 1fr; }
-  section h2 { font-size: 1.8rem; }
+  /* Products: 1 column */
+  .products-grid { grid-template-columns: 1fr; }
 
+  /* Callout grid: stack */
+  .callout-grid { grid-template-columns: 1fr; }
+
+  /* Contact list: tighter */
+  .contact-list li { padding: 1rem; }
+
+  /* Section padding: tighter */
+  section { padding: 50px 0; }
+  section h2 { font-size: 1.9rem; }
+
+  /* Header smaller */
+  #site-header { font-size: 0.85rem; letter-spacing: 0.14em; }
+
+  /* Trees counter */
   .trees-num { font-size: 1.6rem; }
   .trees-inner .fa-tree { font-size: 1.5rem; }
+}
+
+@media (max-width: 480px) {
+  .overview-stats { grid-template-columns: 1fr 1fr; }
+  .team-grid { grid-template-columns: 1fr 1fr !important; }
+  section h2 { font-size: 1.6rem; }
+  .logo-name { font-size: 1.6rem; }
+  .logo-wrap svg { width: 55px; height: 55px; }
+  .logo-wrap { gap: 0.8rem; }
+  .ap-stats-row { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* ── TEAM BIO (expanded on hover) ── */
@@ -1176,12 +1303,15 @@ footer {
 /* ── INTRO VIDEO SCREEN ── */
 #introScreen {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* use dvh on browsers that support it — handles mobile address bar */
+  height: 100dvh;
   z-index: 99999;
   background: #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  overflow: hidden;
   transition: opacity 0.7s ease;
 }
 
@@ -1191,19 +1321,30 @@ footer {
 }
 
 #introVideo {
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* always fill the screen, crop edges if needed */
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
   object-fit: cover;
+  /* force hardware acceleration on mobile */
+  -webkit-transform: translate(-50%, -50%);
+  will-change: transform;
 }
 
 #introSkip {
   position: absolute;
-  bottom: 2rem;
-  right: 2rem;
-  background: rgba(255,255,255,0.15);
+  bottom: max(2rem, env(safe-area-inset-bottom, 2rem));
+  right: 1.5rem;
+  background: rgba(255,255,255,0.18);
   color: #fff;
-  border: 1px solid rgba(255,255,255,0.3);
-  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.35);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   padding: 10px 20px;
   border-radius: 100px;
   font-family: 'Jost', sans-serif;
@@ -1215,8 +1356,11 @@ footer {
   align-items: center;
   gap: 8px;
   transition: background 0.2s;
+  /* make tap target large enough on mobile */
+  min-height: 44px;
+  z-index: 2;
 }
-#introSkip:hover { background: rgba(255,255,255,0.28); }
+#introSkip:hover { background: rgba(255,255,255,0.32); }
 
 /* ── TEAM — hover reveals contact only ── */
 .team-member {
