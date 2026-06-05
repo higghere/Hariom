@@ -34,6 +34,18 @@ window.skipIntro = function () {
     if (video) {
       video.addEventListener('ended', window.skipIntro);
       video.addEventListener('error', window.skipIntro);
+
+      /* force play — required on some mobile browsers */
+      var playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(function () {
+          /* autoplay blocked — skip immediately */
+          window.skipIntro();
+        });
+      }
+    } else {
+      /* no video element found — skip immediately */
+      window.skipIntro();
     }
 
     /* hard failsafe — nukes it after 12s no matter what */
