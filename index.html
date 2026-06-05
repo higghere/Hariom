@@ -14,7 +14,15 @@
 
   <!-- INTRO VIDEO SCREEN -->
   <div id="introScreen">
-    <video id="introVideo" autoplay muted playsinline>
+    <video id="introVideo"
+      autoplay
+      muted
+      playsinline
+      webkit-playsinline
+      x5-playsinline
+      preload="auto"
+      disablePictureInPicture
+      disableRemotePlayback>
       <source src="intro.mp4" type="video/mp4">
     </video>
     <div id="introSkip" onclick="skipIntro()">Skip <i class="fa-solid fa-forward"></i></div>
@@ -82,11 +90,31 @@
     <input type="checkbox" id="navToggled" name="navToggled">
     <h1 class="nav-title">Hariom Industries</h1>
     <ul class="mobile-nav-list">
-      <li><a href="#overview" class="active">About Us</a></li>
-      <li><a href="#products">Products</a></li>
-      <li><a href="#team">Our Team</a></li>
-      <li><a href="#contact">Contact Us</a></li>
-      <li><a href="#faq">FAQ</a></li>
+      <div class="mobile-drawer-header">
+        <span class="mobile-drawer-logo">HARIOM</span>
+        <label class="mobile-drawer-close" for="navToggled">
+          <i class="fa-solid fa-xmark"></i>
+        </label>
+      </div>
+      <li><a href="#overview" class="active" onclick="document.getElementById('navToggled').checked=false">
+        <i class="fa-solid fa-circle-info"></i> About Us
+      </a></li>
+      <div class="mobile-nav-divider"></div>
+      <li><a href="#products" onclick="document.getElementById('navToggled').checked=false">
+        <i class="fa-solid fa-scroll"></i> Products
+      </a></li>
+      <div class="mobile-nav-divider"></div>
+      <li><a href="#team" onclick="document.getElementById('navToggled').checked=false">
+        <i class="fa-solid fa-people-group"></i> Our Team
+      </a></li>
+      <div class="mobile-nav-divider"></div>
+      <li><a href="#contact" onclick="document.getElementById('navToggled').checked=false">
+        <i class="fa-solid fa-phone"></i> Contact Us
+      </a></li>
+      <div class="mobile-nav-divider"></div>
+      <li><a href="#faq" onclick="document.getElementById('navToggled').checked=false">
+        <i class="fa-solid fa-circle-question"></i> FAQ
+      </a></li>
     </ul>
     <label id="toggleNav" for="navToggled">
       <i class="fa-solid fa-bars"></i>
