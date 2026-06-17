@@ -160,19 +160,18 @@ body.bg-paper {
   z-index: 1;
 }
 
-/* Idle envelope — single pill spanning the whole navbar when untouched */
+/* Idle envelope — pill that wraps tightly around just the nav buttons */
 .nav-idle-track {
   position: absolute;
-  left: 8px;
-  right: 8px;
   top: 8px;
   bottom: 8px;
   background: var(--kraft-light);
   border-radius: 100px;
   opacity: 1;
-  transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease, left 0.2s, width 0.2s;
   pointer-events: none;
   z-index: 0;
+  /* left/width are set inline via JS to match first/last nav-item */
 }
 
 /* Hide the idle envelope as soon as the navbar is interacted with */
