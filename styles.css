@@ -477,12 +477,29 @@ section p {
   color: var(--text-muted);
 }
 
-/* ── PRODUCTS ── */
+/* ── PRODUCTS GRID ── */
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   margin-bottom: 1.5rem;
+}
+
+/* Tablet: 2 columns, last item spans full width */
+@media (max-width: 900px) and (min-width: 561px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .product-card:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Mobile: single column (overridden again below, kept here for clarity) */
+@media (max-width: 560px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .product-card {
@@ -753,9 +770,6 @@ footer {
 
   /* Team: 2 columns */
   .team-grid { grid-template-columns: repeat(2, 1fr) !important; }
-
-  /* Products: 1 column */
-  .products-grid { grid-template-columns: 1fr; }
 
   /* Callout grid: stack */
   .callout-grid { grid-template-columns: 1fr; }
