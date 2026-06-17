@@ -148,7 +148,7 @@ body.bg-paper {
   top: 0;
 }
 
-/* Desktop pill track */
+/* Desktop pill track — individual hover highlight */
 .nav-hover-track {
   position: absolute;
   height: calc(100% - 16px);
@@ -157,6 +157,28 @@ body.bg-paper {
   opacity: 0;
   transition: opacity 0.2s, left 0.2s, width 0.2s;
   pointer-events: none;
+  z-index: 1;
+}
+
+/* Idle envelope — single pill spanning the whole navbar when untouched */
+.nav-idle-track {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  top: 8px;
+  bottom: 8px;
+  background: var(--kraft-light);
+  border-radius: 100px;
+  opacity: 1;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Hide the idle envelope as soon as the navbar is interacted with */
+#navbar:hover .nav-idle-track,
+#navbar.nav-touched .nav-idle-track {
+  opacity: 0;
 }
 
 /* Active slider pill */
@@ -166,12 +188,12 @@ body.bg-paper {
   border-radius: 100px;
   transition: left 0.3s cubic-bezier(0.4,0,0.2,1), width 0.3s cubic-bezier(0.4,0,0.2,1), top 0.3s;
   pointer-events: none;
-  z-index: 0;
+  z-index: 2;
 }
 
 .nav-item {
   position: relative;
-  z-index: 1;
+  z-index: 3;
   background: none;
   border: none;
   cursor: pointer;
