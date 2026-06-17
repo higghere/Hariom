@@ -60,6 +60,7 @@
   // ── Click handler ──
   navItems.forEach(function (btn) {
     btn.addEventListener('click', function () {
+      navbar.classList.add('nav-touched');
       navItems.forEach(function (b) { b.classList.remove('active'); });
       btn.classList.add('active');
       positionSlider(btn);
