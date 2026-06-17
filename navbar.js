@@ -4,12 +4,27 @@
    ============================================================ */
 
 (function () {
-  var navbar    = document.getElementById('navbar');
-  var slider    = document.getElementById('navSlider');
+  var navbar     = document.getElementById('navbar');
+  var slider     = document.getElementById('navSlider');
   var hoverTrack = document.getElementById('navHoverTrack');
-  var navItems  = document.querySelectorAll('.nav-item');
+  var idleTrack  = document.getElementById('navIdleTrack');
+  var navItems   = document.querySelectorAll('.nav-item');
 
   if (!navbar || !slider || !navItems.length) return;
+
+  // ── Size idle envelope to span first → last nav item exactly ──
+  function positionIdleTrack() {
+    if (!idleTrack || !navItems.length) return;
+    var navRect   = navbar.getBoundingClientRect();
+    var firstRect = navItems[0].getBoundingClientRect();
+    var lastRect  = navItems[navItems.length - 1].getBoundingClientRect();
+
+    var left  = firstRect.left - navRect.left + navbar.scrollLeft;
+    var width = (lastRect.right - firstRect.left);
+
+    idleTrack.style.left  = left + 'px';
+    idleTrack.style.width = width + 'px';
+  }
 
   // ── Position slider under a given button ──
   function positionSlider(btn) {
@@ -55,6 +70,7 @@
       positionSlider(active);
       scrollActiveIntoView(active);
     }
+    positionIdleTrack();
   }
 
   // ── Click handler ──
@@ -78,6 +94,7 @@
   navbar.addEventListener('scroll', function () {
     var active = navbar.querySelector('.nav-item.active');
     if (active) positionSlider(active);
+    positionIdleTrack();
   }, { passive: true });
 
   // ── Scroll-spy: update active on page scroll ──
